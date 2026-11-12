@@ -165,6 +165,8 @@ def main():
                 'last_rank': last_mark_ranks.get(mint, 999)
             })
 
+    # Scale probabilities per place to <= 0.85 named share.
+    # This leaves at least 0.15 for unnamed coins (phantoms/outsiders).
     for p in range(1, 6):
         place_probs = [item for item in probabilities if item['place'] == p]
         s = sum(item['p'] for item in place_probs)
